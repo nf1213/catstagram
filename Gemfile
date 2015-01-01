@@ -41,6 +41,7 @@ group :development, :test do
   gem 'spring'
   gem 'shoulda'
   gem 'quiet_assets'
+  gem 'orderly'
 end
 
 
@@ -53,3 +54,4 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'simple_form'
+gem 'carrierwave'

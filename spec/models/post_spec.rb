@@ -10,4 +10,12 @@ RSpec.describe Post do
 
   it { should have_valid(:description).when(nil, "", ("a"*140)) }
   it { should_not have_valid(:description).when("a"*141) }
+
+  it "orders the posts by most recent first" do
+    oldest = FactoryGirl.create(:post, created_at: Time.now - 3.days)
+    newest = FactoryGirl.create(:post, created_at: Time.now - 1.day)
+    middle = FactoryGirl.create(:post, created_at: Time.now - 2.days)
+
+    expect(Post.by_recency).to eq [newest, middle, oldest]
+  end
 end
