@@ -13,15 +13,11 @@ feature 'user registers', %Q{
   #   an error message
 
   scenario 'provide valid registration information' do
-    visit new_user_registration_path
+    user = FactoryGirl.build(:user)
 
-    fill_in 'Email', with: 'john@example.com'
-    fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
+    sign_up(user)
 
-    click_button 'Sign up'
-
-    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Meow! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
   end
 
