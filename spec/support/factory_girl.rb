@@ -20,4 +20,9 @@ FactoryGirl.define do
     user
   end
 
+  factory :meow do
+    user
+    post
+  end
+
 end

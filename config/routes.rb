@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts, only: [:index, :new, :create]
+  resources :posts, only: [:index, :new, :create] do
+    resources :meows, only: [:create, :destroy]
+  end
 
   # Example resource route with options:
   #   resources :products do
